@@ -22,6 +22,8 @@ kotlin {
         }
     }
 
+    jvm()
+
     sourceSets {
 
         commonTest {
@@ -47,7 +49,14 @@ kotlin {
             }
         }
 
+        jvmMain {
+            dependencies {
+                implementation(compose.desktop.common)
+                implementation(compose.desktop.currentOs)
+                implementation(libs.ktor.okhttp)
+                implementation(libs.kotlinx.coroutines.swing)
+            }
+        }
+
     }
 }
-
-
